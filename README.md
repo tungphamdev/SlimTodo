@@ -1,26 +1,38 @@
-# Slim Framework 3 Skeleton Application
-
-Use this skeleton application to quickly setup and start working on a new Slim Framework 3 application. This application uses the latest Slim 3 with the PHP-View template renderer. It also uses the Monolog logger.
-
-This skeleton application was built for Composer. This makes setting up a new Slim Framework application quick and easy.
+# Slim Medoo SQlite
 
 ## Install the Application
+composer install
 
-Run this command from the directory in which you want to install your new Slim Framework application.
+## Start the Application
+php -S localhost:8080 -t public public/index.php
 
-    php composer.phar create-project slim/slim-skeleton [my-app-name]
+# APIs
+Use postman to test API conviniently.
+## Get all todo
+method: GET
 
-Replace `[my-app-name]` with the desired directory name for your new application. You'll want to:
+url: localhost:8080/gettodos
 
-* Point your virtual host document root to your new application's `public/` directory.
-* Ensure `logs/` is web writeable.
+## Insert a todo
+method: POST
 
-To run the application in development, you can also run this command. 
+body: {
+	"name": "Something"
+}
 
-	php composer.phar start
+url: localhost:8080/inserttodo
 
-Run this command to run the test suite
+## Update a todo
+method: POST
 
-	php composer.phar test
+body: {
+	"name": "Something",
+	"done": true
+}
 
-That's it! Now go build something cool.
+url: localhost:8080/updatetodo/id
+
+## Delete a todo
+method: POST
+
+url: localhost:8080/deletetodo/id
